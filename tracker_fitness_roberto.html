@@ -357,7 +357,7 @@ try{DB=JSON.parse(localStorage.getItem('fit_roberto_v4')||'{}');}catch(e){}
 const svLocal=()=>{try{localStorage.setItem('fit_roberto_v4',JSON.stringify(DB));}catch(e){}};
 
 // FECHA ACTIVA — controla todo
-const todayStr=()=>new Date().toISOString().slice(0,10);
+const todayStr=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
 let activeDate=todayStr(); // yyyy-mm-dd
 let activePage=0;
 let openMeals=new Set(['des','com','cen']);
